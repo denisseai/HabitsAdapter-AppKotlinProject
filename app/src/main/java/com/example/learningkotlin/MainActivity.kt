@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }
-
     private fun switch(c: Class<*>) {
         val intent = Intent(this, c)
         startActivity(intent)
