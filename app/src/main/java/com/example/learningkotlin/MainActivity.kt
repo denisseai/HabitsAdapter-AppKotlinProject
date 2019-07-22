@@ -13,8 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //Adapter -> define data
+        //Adapter -> defines data
         //Recycler -> implement 3 methods
         rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(this)

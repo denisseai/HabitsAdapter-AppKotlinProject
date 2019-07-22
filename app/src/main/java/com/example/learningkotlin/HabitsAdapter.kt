@@ -7,21 +7,20 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.single_card.view.*
 
 class HabitsAdapter(val habits: List<Habit>): RecyclerView.Adapter<HabitsAdapter.HabitViewHolder>() {
-
-    class HabitViewHolder(val card: View) : RecyclerView.ViewHolder(card)
-
+    class HabitViewHolder(val iv: View) : RecyclerView.ViewHolder(iv)
     //Specifies the contents for the shown habit
     override fun onBindViewHolder(holder: HabitViewHolder, index: Int) {
-        if(holder != null){
+        if(holder!= null) {
             val habit = habits[index]
-            holder.card.tv_title.text = habit.title
-            holder.card.tv_description.text = habit.description
-            holder.card.iv_icon.setImageResource(habit.image)
+            holder.iv.tv_title.text = habit.title
+            holder.iv.tv_description.text = habit.description
+            holder.iv.iv_icon.setImageResource(habit.image)
         }
+
     }
     //Create a new ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HabitViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_card,parent)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_card, parent, false)
         return HabitViewHolder(view)
     }
     override fun getItemCount() = habits.size

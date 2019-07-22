@@ -2,7 +2,7 @@ package com.example.learningkotlin
 
 import java.io.FileDescriptor
 
-data class Habit (val title: String, val description: String, val image:Int)
+data class Habit (val title: String, val description: String, val image: Int)
 
 fun getSampleHabits(): List<Habit>{
     return listOf(
