@@ -20,9 +20,17 @@ class HabitDbTable(context: Context) {
         values.put(HabitEntry.TITLE_COL, habit.title)
         values.put(HabitEntry.DESCR_COL, habit.description)
         values.put(HabitEntry.IMAGE_COL, toByteArray(habit.image))
-        
-        val id = db.insert(HabitEntry.TABLE_NAME, null, values)
+
+        db.beginTransaction()
+        val id = try {
+           val returnValue = db.insert(HabitEntry.TABLE_NAME, null, values)
+            db.setTransactionSuccessful()
+            returnValue
+        }finally {
+            db.endTransaction()
+        }
         db.close()
+
         Log.d(TAG, "Stored new habit to DB $habit")
         return id
     }
